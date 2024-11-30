@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define the structure for the stack
 typedef struct {
     int* array;
     int top;
     int capacity;
 } Stack;
 
-// Function to create a new stack
 Stack* createStack(int capacity) {
     Stack* stack = (Stack*)malloc(sizeof(Stack));
     stack->capacity = capacity;
@@ -17,17 +15,14 @@ Stack* createStack(int capacity) {
     return stack;
 }
 
-// Function to check if the stack is empty
 int isEmpty(Stack* stack) {
     return stack->top == -1;
 }
 
-// Function to check if the stack is full
 int isFull(Stack* stack) {
     return stack->top == stack->capacity - 1;
 }
 
-// Function to push an element onto the stack
 void push(Stack* stack, int data) {
     if (isFull(stack)) {
         printf("Stack is full. Cannot push %d.\n", data);
@@ -37,7 +32,6 @@ void push(Stack* stack, int data) {
     printf("Pushed %d onto the stack\n", data);
 }
 
-// Function to pop an element from the stack
 void pop(Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack is empty. Cannot pop.\n");
@@ -46,7 +40,6 @@ void pop(Stack* stack) {
     printf("Popped %d from the stack\n", stack->array[stack->top--]);
 }
 
-// Function to peek the top element of the stack
 void peek(Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack is empty. Cannot peek.\n");
@@ -55,7 +48,6 @@ void peek(Stack* stack) {
     printf("Top element is %d\n", stack->array[stack->top]);
 }
 
-// Function to display the stack elements
 void display(Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack is empty.\n");
